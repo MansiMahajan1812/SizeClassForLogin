@@ -20,6 +20,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func overrideTraitCollection(forChildViewController childViewController: UIViewController) -> UITraitCollection? {
+        if view.bounds.width < view.bounds.height {
+            let traitCollections = [UITraitCollection(horizontalSizeClass: .compact), UITraitCollection(verticalSizeClass: .regular) ]
+            return UITraitCollection(traitsFrom: traitCollections)
+        }
+        else{
+            let traitCollections = [UITraitCollection(horizontalSizeClass: .unspecified), UITraitCollection(horizontalSizeClass: .unspecified) ]
+            
+            return UITraitCollection(traitsFrom: traitCollections)
+            
+        }
+    }
 
 }
 
